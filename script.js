@@ -2,21 +2,21 @@
 // 1. EDITE SUAS HABILIDADES (SKILLS) AQUI
 // ==========================================
 const SKILLS = [
-  { name: 'HTML', cat: 'frontend' },
-  { name: 'CSS', cat: 'frontend' },
-  { name: 'JavaScript', cat: 'frontend' },
-  { name: 'TypeScript', cat: 'frontend' },
-  { name: 'React', cat: 'frontend' },
-  { name: 'Next.js', cat: 'frontend' },
-  { name: 'Node.js', cat: 'backend' },
-  { name: 'Python', cat: 'backend' },
-  { name: 'APIs REST', cat: 'backend' },
-  { name: 'PostgreSQL', cat: 'database' },
-  { name: 'MySQL', cat: 'database' },
-  { name: 'Git', cat: 'tools' },
-  { name: 'GitHub', cat: 'tools' },
-  { name: 'Docker', cat: 'tools' },
-  { name: 'VS Code', cat: 'tools' },
+  { name: 'HTML', cat: 'frontend', level: 'avancado' },
+  { name: 'CSS', cat: 'frontend', level: 'avancado' },
+  { name: 'JavaScript', cat: 'frontend', level: 'intermediario' },
+  { name: 'TypeScript', cat: 'frontend', level: 'em-aprendizado' },
+  { name: 'React', cat: 'frontend', level: 'em-aprendizado' },
+  { name: 'Next.js', cat: 'frontend', level: 'em-aprendizado' },
+  { name: 'Node.js', cat: 'backend', level: 'intermediario' },
+  { name: 'Python', cat: 'backend', level: 'intermediario' },
+  { name: 'APIs REST', cat: 'backend', level: 'intermediario' },
+  { name: 'PostgreSQL', cat: 'database', level: 'em-aprendizado' },
+  { name: 'MySQL', cat: 'database', level: 'intermediario' },
+  { name: 'Git', cat: 'tools', level: 'avancado' },
+  { name: 'GitHub', cat: 'tools', level: 'avancado' },
+  { name: 'Docker', cat: 'tools', level: 'em-aprendizado' },
+  { name: 'VS Code', cat: 'tools', level: 'avancado' },
 ];
 
 // ==========================================
@@ -24,11 +24,11 @@ const SKILLS = [
 // ==========================================
 const PROJECTS = [
   {
-    name: 'E-commerce Inteligente',
-    cat: 'Aplicação Web',
-    desc: 'Plataforma completa de vendas com checkout transparente e painel de controle.',
-    tech: ['React', 'TypeScript', 'Tailwind'],
-    status: 'Em andamento',
+    name: 'Sistema de Login',
+    cat: 'Full Stack',
+    desc: 'Sistema de autenticação de usuários com cadastro, login e gerenciamento seguro de sessões, desenvolvido para demonstrar a integração entre frontend, backend e banco de dados.',
+    tech: ['JavaScript', 'Node.js', 'Fastify', 'PostgreSQL', 'Prisma'],
+    status: 'Em Desenvolvimento'
   },
   {
     name: 'API Financeira',
@@ -38,10 +38,10 @@ const PROJECTS = [
     status: 'Planos Futuros',
   },
   {
-    name: 'Gerenciador de Tarefas',
-    cat: 'Produto Full-stack',
-    desc: 'SaaS estilo Kanban com atualização via WebSockets para times remotos.',
-    tech: ['Next.js', 'Prisma', 'Vercel'],
+    name: 'E-commerce Inteligente',
+    cat: 'Aplicação Web',
+    desc: 'Plataforma completa de vendas com checkout transparente e painel de controle.',
+    tech: ['React', 'TypeScript', 'Tailwind'],
     status: 'Planos Futuros',
   },
   {
@@ -59,8 +59,8 @@ const PROJECTS = [
 const TIMELINE = [
   {
     date: '2025 - ATUAL',
-    title: 'Bacharel em Ciência da Computação',
-    org: 'Centro Educacional Afya São Lucas',
+    title: 'Bacharelado em Ciência da Computação',
+    org: 'Centro Universitário São Lucas Afya',
     desc: 'Curso superior com foco em estudos de software, algoritmos e inteligência artificial, UX/UI, POO, Desenvolvimento Web, SGBD, Git, GitHub.',
     languages: [
       { name: 'Python',       icon: 'https://img.icons8.com/?size=100&id=lXPUSRCongH1&format=png&color=000000',     color: '#3776AB' },
@@ -69,6 +69,17 @@ const TIMELINE = [
       { name: 'CSS',          icon: 'https://img.icons8.com/?size=100&id=21278&format=png&color=000000',            color: '#1572B6' },
       { name: 'PostgreSQL',   icon: 'https://img.icons8.com/?size=100&id=38561&format=png&color=000000',            color: '#4169E1' },
       { name: 'MySQL',        icon: 'https://img.icons8.com/?size=100&id=9nLaR5KFGjN0&format=png&color=000000',     color: '#4479A1' },
+    ]
+  },
+  {
+    date: '2026',
+    title: 'Desafio Liga Jovem',
+    org: 'Sebrae',
+    desc: 'Desenvolvimento e apresentação de uma solução tecnológica, trabalhando desde a concepção da ideia até a implementação e apresentação do projeto para a banca avaliadora. O desafio envolveu a criação de um protótipo funcional e trabalho em equipe para empreender.',  
+    cert: 'image/certificado-DLJ/certifica-semifinalista-dlj--2025.png',
+    languages: [
+      { name: 'HTML',         icon: 'https://img.icons8.com/?size=100&id=20909&format=png&color=000000',            color: '#E34F26' },
+      { name: 'CSS',          icon: 'https://img.icons8.com/?size=100&id=21278&format=png&color=000000',            color: '#1572B6' },
     ]
   },
   {
@@ -102,12 +113,21 @@ const TIMELINE = [
 const skillsGrid = document.getElementById('skillsGrid');
 function renderSkills(filter) {
   skillsGrid.innerHTML = SKILLS
-    .filter(s => filter === 'all' || s.cat === filter)
-    .map(s => `<div class="skill-card"><div class="name">${s.name}</div><div class="cat">${labelCat(s.cat)}</div></div>`)
+    .filter(s => filter === 'all' || s.cat === filter) // cat continua usado só pra filtrar
+    .map(s => `
+      <div class="skill-card">
+        <div class="name">${s.name}</div>
+        <div class="level level-${s.level}">${labelLevel(s.level)}</div>
+      </div>
+    `)
     .join('');
 }
-function labelCat(cat) {
-  return { frontend: 'Frontend', backend: 'Backend', database: 'Banco de Dados', tools: 'Ferramentas' }[cat] || cat;
+function labelLevel(level) {
+  return {
+    avancado: 'Avançado',
+    intermediario: 'Intermediário',
+    'em-aprendizado': 'Em aprendizado'
+  }[level] || level;
 }
 renderSkills('all');
 
@@ -175,6 +195,25 @@ const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
+// Scroll-spy: marca o link do menu ativo conforme a seção visível
+const sections = document.querySelectorAll('main section[id], main[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, {
+  rootMargin: '-45% 0px -50% 0px', // considera "ativa" quando a seção cruza o meio da tela
+  threshold: 0
+});
+
+sections.forEach(section => spyObserver.observe(section));
 
 // Menu Mobile
 const menuBtn = document.getElementById('menuBtn');

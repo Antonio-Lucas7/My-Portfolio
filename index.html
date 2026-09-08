@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="style.css">
 
 <link rel="icon" type="image/png" href="image/mario-sem-fundo-la-ele.png">
+
 </head>
 <body>
 
@@ -22,39 +23,49 @@
   <nav class="container">
     <a href="#home" class="logo">Tonio<span>.</span>Lucas</a>
     <ul class="nav-links">
-      <li><a href="#home">Início</a></li>
+      <li><a href="#home">Inicio</a></li>
       <li><a href="#about">Sobre</a></li>
       <li><a href="#skills">Habilidades</a></li>
       <li><a href="#projects">Projetos</a></li>
-      <li><a href="#experience">Experiência</a></li>
-      <li><a href="#contact">Contato</a></li>
+      <li><a href="#experience">Formação</a></li>
+
     </ul>
-    <a href="#contact" class="nav-cta">Vamos conversar</a>
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+
+
+    <div class="nav-actions">
+      <a href="#contact" class="nav-cta">Vamos conversar</a>
+      <a href="files/curriculo-Antonio-Lucas-Florencio-da-Silva.pdf" download="curriculo-Antonio-Lucas-Florencio.pdf" class="nav-cta nav-cta-ghost">Baixar currículo</a>
+      <a href="https://github.com/Antonio-Lucas7" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-ghost">GitHub</a>
+    
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
   </nav>
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#home">Início</a>
+  <a href="#home">Inicio</a>
   <a href="#about">Sobre</a>
   <a href="#skills">Habilidades</a>
   <a href="#projects">Projetos</a>
-  <a href="#experience">Experiência</a>
-  <a href="#contact">Contato</a>
+  <a href="#experience">Formação</a>
+  <a href="files/curriculo-Antonio-Lucas-Florencio-da-Silva.pdf" download="curriculo-Antonio-Lucas-Florencio.pdf">Baixar Currículo</a>
+  <a href="https://github.com/Antonio-Lucas7" target="_blank" rel="noopener noreferrer">GitHub</a>
 </div>
 
-<main id="home">
+<main>
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow reveal">Disponível para novos projetos</p>
-        <h1 class="hero-name reveal reveal-delay-1">Antonio Lucas<br><span class="accent-text">Software Developer</span></h1>
+        <p class="eyebrow reveal">
+          <span class="status-dot" aria-hidden="true"></span>
+            Disponível para estágio
+        </p>
+        <h1 class="hero-name reveal reveal-delay-1">Antonio Lucas<br><span class="accent-text">Software Developer | Full Stack</span></h1>
         <p class="hero-desc reveal reveal-delay-2">
-          Desenvolvedor que transforma ideias em experiências digitais. Construo produtos web rápidos,
-          acessíveis e bem pensados — do primeiro esboço à publicação em produção.
+          Desenvolvedor focado em aplicações web, com experiência em JavaScript, Node.js, React e PostgreSQL. Atualmente aprimorando minhas habilidades em desenvolvimento Full Stack e construção de aplicações escaláveis. Desenvolvedor que transforma ideias em experiências digitais.
         </p>
         <div class="hero-actions reveal reveal-delay-3">
           <a href="#projects" class="btn btn-primary">
@@ -67,24 +78,22 @@
           </a>
         </div>
         <div class="hero-meta reveal reveal-delay-4">
-          <div><strong>+3</strong><span>Anos de experiência</span></div>
-          <div><strong>+4</strong><span>Projetos entregues</span></div>
-          <div><strong>5</strong><span>Tecnologias no dia a dia</span></div>
+          <div><strong>3+</strong><span>Anos estudando programação</span></div>
+          <div><strong>5+</strong><span>Projetos desenvolvidos</span></div>
+          <br> <br>
+          <br>
+          <br>
+          <div><strong>Full-Stack em desenvolvimento</strong><span></data></span></div>
         </div>
       </div>
 
       <div class="reveal reveal-delay-2">
-        <div class="terminal" role="img" aria-label="Terminal ilustrativo mostrando comandos de desenvolvimento">
-          <div class="terminal-bar">
-            <div class="terminal-dot" style="background:#FF5F57"></div>
-            <div class="terminal-dot" style="background:#FEBC2E"></div>
-            <div class="terminal-dot" style="background:#28C840"></div>
-            <span class="terminal-title">~/Antoin.grau — zsh</span>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-glow" aria-hidden="true"></div>
+            <img src="image/foto-portifolio/foto-1-portifolio.jpeg" alt="Foto de Antonio Lucas" class="hero-photo">
           </div>
-          <div class="terminal-body" id="terminalBody"></div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- ABOUT -->
@@ -97,18 +106,33 @@
       <div class="about-text reveal">
         <p>Sou o <strong>Antonio</strong>, desenvolvedor de software com foco em Programação Web.</p>
         <p>Gosto de construir interfaces que funcionam tão bem quanto parecem. Minha filosofia: <strong>Código bom é aquele que funciona e não sabemos como</strong>.</p>
-        <p>Fora do código, gosto de esportes e academia.</p>
+        <p>Sou estudante de <strong>Bacharelado em Informática</strong> e <strong>Técnico em Informática</strong>, com foco em desenvolvimento web Full Stack.
+        Tenho interesse principalmente em <strong>JavaScript, React, Node.js e PostgreSQL</strong>.</p>
+        <p>Atualmente desenvolvo projetos próprios para aprofundar meus conhecimentos em desenvolvimento de APIs, bancos de dados, autenticação e arquitetura de aplicações. Meu objetivo é <strong> ingressar profissionalmente na área de desenvolvimento de software e continuar evoluindo através de projetos reais.</strong></p>
       </div>
+    
       <div class="reveal reveal-delay-1">
-        <div class="stats-grid">
+        <!-- <div class="stats-grid">
           <div class="stat-card"><strong>3+</strong><span>Anos escrevendo código</span></div>
           <div class="stat-card"><strong>4+</strong><span>Projetos concluídos</span></div>
           <div class="stat-card"><strong>5</strong><span>Clientes atendidos</span></div>
           <div class="stat-card"><strong>5</strong><span>Tecnologias dominadas</span></div>
+        </div> -->
+      
+        <div class="terminal terminal-about" style="margin-top:24px;">
+          <div class="terminal-bar">
+            <div class="terminal-dot" style="background:#FF5F57"></div>
+            <div class="terminal-dot" style="background:#FEBC2E"></div>
+            <div class="terminal-dot" style="background:#28C840"></div>
+            <span class="terminal-title">~/Antoin.grau — zsh</span>
+          </div>
+          <div class="terminal-body" id="terminalBody"></div>
         </div>
       </div>
     </div>
   </section>
+
+  <!--      -->
 
   <!-- SKILLS -->
   <section class="py container" id="skills">
@@ -130,7 +154,7 @@
   <section class="py container" id="projects">
     <div class="section-head reveal">
       <p class="eyebrow">Trabalho</p>
-      <h2>Projeto em destaque.</h2>
+      <h2>Projeto e Experiências Práticas.</h2>
     </div>
 
   
@@ -141,10 +165,10 @@
       <div class="featured-content">
         <span class="featured-badge">Projeto em destaque</span>
         <h3>Loja de Varejo Digital</h3>
-        <p class="p-borda">Desenvolvimento de uma plataforma digital para venda de produtos de varejo, com foco em experiência do usuário e desempenho e integração com banco de dados .</p>
+        <p class="p-borda">Desenvolvimento de uma plataforma digital para venda de produtos de varejo, com foco em experiência do usuário e desempenho. Site vitrine.<!-- e integração com banco de dados --> </p>
         <div class="featured-results">
-          <div><strong>98%</strong><span>Satisfação dos Usuários</span></div>
-          <div><strong>10k+</strong><span>Acessos mensais</span></div>
+          <!-- <div><strong>90%</strong><span>Satisfação dos Usuários</span></div>
+          <div><strong>3k+</strong><span>Acessos mensais</span></div> -->
         </div>
         <div class="project-tech">
           <span class="tech-pill">React</span>
@@ -171,7 +195,7 @@
   <section class="py container" id="experience">
     <div class="section-head reveal">
       <p class="eyebrow">Trajetória</p>
-      <h2>Experiência e formação.</h2>
+      <h2>Formação.</h2>
     </div>
     <div class="timeline reveal" id="timeline"></div>
   </section>
@@ -207,5 +231,9 @@
 
 <!-- Link para o arquivo JS de script -->
 <script src="script.js"></script>
+  <div class="cert-modal" id="certModal">
+    <button class="cert-modal-close" id="certModalClose" aria-label="Fechar">✕</button>
+    <img src="" alt="Certificado" id="certModalImg" class="cert-modal-img">
+  </div>
 </body>
 </html>
