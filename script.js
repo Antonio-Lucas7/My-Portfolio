@@ -80,6 +80,7 @@ const TIMELINE = [
     languages: [
       { name: 'HTML',         icon: 'https://img.icons8.com/?size=100&id=20909&format=png&color=000000',            color: '#E34F26' },
       { name: 'CSS',          icon: 'https://img.icons8.com/?size=100&id=21278&format=png&color=000000',            color: '#1572B6' },
+      { name: 'JavaScript',   icon: 'https://img.icons8.com/?size=100&id=PXTY4q2Sq2lG&format=png&color=000000',     color: '#F7DF1E' }
     ]
   },
   {
@@ -162,30 +163,52 @@ projectsGrid.innerHTML = PROJECTS.map(p => `
 document.getElementById('timeline').innerHTML = TIMELINE.map(t => `
   <div class="timeline-item">
     <span class="timeline-date">${t.date}</span>
-
     <h4>${t.title}</h4>
-
     <div class="org">${t.org}</div>
-
     <p class="timeline-desc">${t.desc}</p>
 
     <div class="timeline-languages">
       ${t.languages ? t.languages.map(lang => `
-        <span 
-          class="timeline-language"
-          style="--lang-color: ${lang.color};"
-        >
-        <img 
-          class="language-icon" 
-          src="${lang.icon}" 
-          alt="${lang.name}"
-        >
+        <span class="timeline-language" style="--lang-color: ${lang.color};">
+          <img class="language-icon" src="${lang.icon}" alt="${lang.name}">
           <span>${lang.name}</span>
         </span>
       `).join('') : ''}
     </div>
+
+    ${t.cert ? `
+      <button class="timeline-cert" data-cert="${t.cert}">
+        📄 Ver certificado
+      </button>
+    ` : ''}
   </div>
 `).join('');
+
+// Lightbox do certificado
+const certModal = document.getElementById('certModal');
+const certModalImg = document.getElementById('certModalImg');
+const certModalClose = document.getElementById('certModalClose');
+
+document.getElementById('timeline').addEventListener('click', (e) => {
+  const btn = e.target.closest('.timeline-cert');
+  if (!btn) return;
+  certModalImg.src = btn.dataset.cert;
+  certModal.classList.add('open');
+  document.body.style.overflow = 'hidden'; // trava o scroll do fundo
+});
+
+function closeCertModal() {
+  certModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+certModalClose.addEventListener('click', closeCertModal);
+certModal.addEventListener('click', (e) => {
+  if (e.target === certModal) closeCertModal(); // clicar fora da imagem também fecha
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCertModal(); // tecla ESC fecha
+});
 
 // Ano Atual
 document.getElementById('year').textContent = new Date().getFullYear();
