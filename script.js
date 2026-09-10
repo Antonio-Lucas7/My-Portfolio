@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     name: 'Sistema de Login',
     cat: 'Full Stack',
-    desc: 'Sistema de autenticação de usuários com cadastro, login e gerenciamento seguro de sessões, desenvolvido para demonstrar a integração entre frontend, backend e banco de dados.',
+    desc: 'Sistema de autenticação desenvolvido para estudar e implementar conceitos de desenvolvimento Full Stack, incluindo API, banco de dados, validação e autenticação de usuários.',
     tech: ['JavaScript', 'Node.js', 'Fastify', 'PostgreSQL', 'Prisma'],
     status: 'Em Desenvolvimento'
   },
@@ -273,58 +273,7 @@ if (window.matchMedia('(min-width:1024px)').matches) {
   window.addEventListener('mouseleave', () => glow.classList.remove('active'));
 }
 
-// Efeito de digitação do Terminal
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const terminalBody = document.getElementById('terminalBody');
-const commands = [
-  { prompt: '~ $', text: 'whoami', output: 'software developer' },
-  { prompt: '~ $', text: 'cat stack.txt', output: 'React · TypeScript · Node.js · PostgreSQL' },
-  { prompt: '~ $', text: 'git commit -m "ship it"', output: '1 file changed, ideas turned into code' },
-  { prompt: '~ $', text: 'npm run build', output: '✓ build concluído em 1.2s' },
-];
 
-async function typeTerminal() {
-  if (reduceMotion) {
-    terminalBody.innerHTML = commands.map(c => `
-      <div class="terminal-line"><span class="terminal-prompt">${c.prompt}</span><span>${c.text}</span></div>
-      <div class="terminal-line"><span class="terminal-output">${c.output}</span></div>
-    `).join('');
-    return;
-  }
-  while (true) {
-    terminalBody.innerHTML = '';
-    for (const c of commands) {
-      const line = document.createElement('div');
-      line.className = 'terminal-line';
-      const promptSpan = document.createElement('span');
-      promptSpan.className = 'terminal-prompt';
-      promptSpan.textContent = c.prompt;
-      const textSpan = document.createElement('span');
-      const caret = document.createElement('span');
-      caret.className = 'caret';
-      line.appendChild(promptSpan);
-      line.appendChild(textSpan);
-      line.appendChild(caret);
-      terminalBody.appendChild(line);
-
-      for (let i = 0; i < c.text.length; i++) {
-        textSpan.textContent += c.text[i];
-        await sleep(28 + Math.random() * 35);
-      }
-      caret.remove();
-      await sleep(250);
-
-      const out = document.createElement('div');
-      out.className = 'terminal-line';
-      out.innerHTML = `<span class="terminal-output">${c.output}</span>`;
-      terminalBody.appendChild(out);
-      await sleep(650);
-    }
-    await sleep(1400);
-  }
-}
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-typeTerminal();
 
 //Contact-Links
 function copiarTexto(texto) {
